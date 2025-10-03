@@ -1,9 +1,6 @@
 package com.satyam.SpringEcom.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,12 +15,13 @@ import java.math.BigDecimal;
 @Builder
 public class OrderItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
     private Product product;
     private int quantity;
-    private BigDecimal totalPrice;
+    private int totalPrice;
     @ManyToOne(fetch= FetchType.LAZY)
     private Order order;
 
