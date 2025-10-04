@@ -21,7 +21,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProdcuts() {
+    public ResponseEntity<List<Product>> getProducts() {
         log.info("api/products successfully hitted");
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
